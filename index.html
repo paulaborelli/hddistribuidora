@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal de RH — HD Distribuidora</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F5F5F5; --surface: #FFFFFF; --border: #E0E0E0;--border-focus: #1B5E20;
+    --text: #212121; --text-muted: #757575;--text-hint: #BDBDBD;
+    --accent: #1B5E20; --accent-light: #E8F5E9; --accent-text: #1B5E20;
+    --radius: 12px; --radius-sm: 8px;
+  }
+  body {
+    font-family: "Lora";
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; display: flex;
+    flex-direction: column; align-items: center;
+    justify-content: center; padding: 2rem 1rem;
+  }
+  .wrap { max-width: 560px; width: 100%; text-align: center; }
+  .logo { width: 80px; height: 80px; margin-bottom: 1.5rem; }
+  .title { font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+  .subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 2rem; }
+  .cards { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+  .card-link, .card-toggle { display: flex; align-items: center; gap: 1rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; text-decoration: none; color: inherit; transition: all 0.2s ease; }
+  .card-link:hover, .card-toggle:hover { border-color: var(--border-focus); background: var(--accent-light); }
+  .card-icon { flex-shrink: 0; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+  .card-body { flex: 1; text-align: left; }
+  .card-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+  .card-desc { font-size: 0.875rem; color: var(--text-muted); }
+  .card-arrow { color: var(--accent); font-weight: 600; }
+  .card-group { margin-top: 1rem; }
+  .card-group .card-toggle { border-radius: var(--radius-sm); padding: 1rem; }
+  .card-group .card-toggle.active { border-color: var(--border-focus); background: var(--accent-light); }
+  .card-group .card-toggle.active .card-arrow { transform: rotate(90deg); }
+  .card-submenu { display: none; background: var(--accent-light); border-radius: 0 0 var(--radius-sm) var(--radius-sm); padding: 1rem; margin-top: -1px; border: 1px solid var(--border); border-top: none; }
+  .card-submenu.active { display: block; }
+  .card-submenu a { display: block; padding: 0.75rem 0; color: var(--accent-text); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid rgba(27, 94, 32, 0.1); }
+  .card-submenu a:last-child { border-bottom: none; }
+  .card-submenu a:hover { color: var(--accent); font-weight: 500; }
+  .footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-hint); font-size: 0.875rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img src="data:image/png;base64,AUUUUAf//Z" alt="HD Distribuidora" class="logo">
+  <h1 class="title">Portal de RH</h1>
+  <p class="subtitle">HD Distribuidora — Gestão de Pessoas</p>
+  <div class="cards">
+    <!-- Manual de Conduta & Cultura -->
+    <a class="card-link" href="manual/index.html">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Manual de Conduta & Cultura</div>
+        <div class="card-desc">Valores, princípios e diretrizes da HD Distribuidora</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+  </div>
+  <div class="footer">
+    <p>© 2024 HD Distribuidora. Todos os direitos reservados.</p>
+  </div>
+</div>
+</body>
+</html>
