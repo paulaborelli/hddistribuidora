@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal de RH — HD Distribuidora</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F0F3F8; --surface: #FFFFFF; --border: #C8D6E8;
+  --text: #1A1E2E; --text-hint: #8893B0;
+  --accent: #2E4DA6; --accent-light: #E8EDF8; --radius: 12px;
+}
+body { font-family: "Lora"; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; }
+.wrap { max-width: 560px; width: 100%; text-align: center; }
+.logo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.25rem; border: 3px solid rgba(46,77,166,0.2); display: block; }
+.title { font-size: 28px; font-weight: 600; margin-bottom: 0.4rem; }
+.subtitle { font-size: 14px; color: var(--text-hint); margin-bottom: 2.5rem; }
+.cards { display: flex; flex-direction: column; gap: 12px; }
+.card-group { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.15s; }
+.card-group:hover { border-color: var(--accent); }
+.card-toggle { display: flex; align-items: center; gap: 16px; padding: 1.25rem 1.5rem; cursor: pointer; background: transparent; border: none; width: 100%; text-align: left; font-family:"Lora"; font-size: 15px; font-weight: 500; color: var(--text); }
+.card-toggle:hover { background: rgba(46,77,166,0.03); }
+.card-icon { width: 48px; height: 48px; min-width: 48px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; }
+.card-body { flex: 1; }
+.card-title { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+.card-desc { font-size: 13px; color: var(--text-hint); line-height: 1.4; }
+.card-arrow { color: var(--text-hint); font-size: 18px; transition: transform 0.2s; }
+.card-arrow.open { transform: rotate(90deg); color: var(--accent); }
+.sub-items { display: none; border-top: 1px solid var(--border); }
+.sub-items.open { display: block; }
+.sub-link { display: flex; align-items: center; gap: 14px; padding: 1rem 1.5rem 1rem 5rem; text-decoration: none; border-bottom: 1px solid #edf0f8; transition: background 0.15s; }
+.sub-link:last-child { border-bottom: none; }
+.sub-link:hover { background: rgba(46,77,166,0.04); }
+.sub-body { flex: 1; text-align: left; }
+.sub-title { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+.sub-desc { font-size: 12px; color: var(--text-hint); }
+.sub-arrow { color: var(--text-hint); font-size: 16px; transition: transform 0.15s; }
+.sub-link:hover .sub-arrow { transform: translateX(3px); color: var(--accent); }
+.footer { margin-top: 2.5rem; font-size: 12px; color: var(--text-hint); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img src="logo.jpg" alt="HD Distribuidora" class="logo">
+  <h1 class="title">Portal de RH</h1>
+  <p class="subtitle">HD Distribuidora — Gestão de Pessoas</p>
+  <div class="cards">
+
+    <div class="card-group">
+      <button class="card-toggle" onclick="toggle('contratacao')">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E4DA6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="card-body"><div class="card-title">Contratação</div><div class="card-desc">Formulários e checklists de admissão</div></div>
+        <span class="card-arrow" id="arrow-contratacao">→</span>
+      </button>
+      <div class="sub-items" id="sub-contratacao">
+        <a class="sub-link" href="admissao/index.html"><div class="sub-body"><div class="sub-title">Ficha de Admissão</div><div class="sub-desc">Formulário para ingresso de colaboradores</div></div><span class="sub-arrow">→</span></a>
+        <a class="sub-link" href="admissao-admin/index.html"><div class="sub-body"><div class="sub-title">Admissão — Admin</div><div class="sub-desc">Formulário interno de admissão para o RH</div></div><span class="sub-arrow">→</span></a>
+        <a class="sub-link" href="checklist-contratacao/index.html"><div class="sub-body"><div class="sub-title">Checklist de Contratação</div><div class="sub-desc">Conferência de documentos e registros de admissão</div></div><span class="sub-arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="card-group">
+      <button class="card-toggle" onclick="toggle('desligamento')">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E4DA6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div>
+        <div class="card-body"><div class="card-title">Desligamento</div><div class="card-desc">Processos de encerramento de vínculo</div></div>
+        <span class="card-arrow" id="arrow-desligamento">→</span>
+      </button>
+      <div class="sub-items" id="sub-desligamento">
+        <a class="sub-link" href="solicitacao-desligamento/index.html"><div class="sub-body"><div class="sub-title">Solicitação de Desligamento</div><div class="sub-desc">Registro interno para gestores e RH</div></div><span class="sub-arrow">→</span></a>
+        <a class="sub-link" href="entrevista/index.html"><div class="sub-body"><div class="sub-title">Entrevista de Desligamento</div><div class="sub-desc">Formulário para o colaborador responder</div></div><span class="sub-arrow">→</span></a>
+        <a class="sub-link" href="checklist-desligamento-admin/index.html"><div class="sub-body"><div class="sub-title">Checklist de Desligamento</div><div class="sub-desc">Procedimentos de saída do colaborador</div></div><span class="sub-arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="card-group">
+      <button class="card-toggle" onclick="toggle('acompanhamento')">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E4DA6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="card-body"><div class="card-title">Acompanhamento</div><div class="card-desc">Ferramentas de desenvolvimento e feedback</div></div>
+        <span class="card-arrow" id="arrow-acompanhamento">→</span>
+      </button>
+      <div class="sub-items" id="sub-acompanhamento">
+        <a class="sub-link" href="feedback/index.html"><div class="sub-body"><div class="sub-title">Registro de Feedback</div><div class="sub-desc">Feedback 1:1 entre gestor e colaborador</div></div><span class="sub-arrow">→</span></a>
+      </div>
+    </div>
+
+  </div>
+  <p class="footer">© HD Distribuidora · Uso interno</p>
+</div>
+<script>
+function toggle(id) {
+  const sub = document.getElementById('sub-' + id);
+  const arrow = document.getElementById('arrow-' + id);
+  const isOpen = sub.classList.contains('open');
+  document.querySelectorAll('.sub-items').forEach(el => el.classList.remove('open'));
+  document.querySelectorAll('.card-arrow[id]').forEach(el => { el.classList.remove('open'); el.textContent = '→'; });
+  if (!isOpen) { sub.classList.add('open'); arrow.classList.add('open'); arrow.textContent = '↓'; }
+}
+</script>
+</body>
+</html>
